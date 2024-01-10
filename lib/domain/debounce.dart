@@ -2,14 +2,14 @@ import 'dart:async';
 
 class Debounce {
   final Duration duration;
-  Timer? _timer;
+  Timer? timer;
 
   Debounce(this.duration);
 
   void onEvent(void Function() callback) {
-    if (_timer?.isActive ?? false) {
-      _timer?.cancel();
+    if (timer?.isActive ?? false) {
+      timer?.cancel();
     }
-    _timer = Timer(duration, () => callback());
+    timer = Timer(duration, () => callback());
   }
 }
